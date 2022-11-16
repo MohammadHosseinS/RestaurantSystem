@@ -5,6 +5,7 @@ CREATE TABLE Branches
 City VARCHAR(50),
 Name VARCHAR(50)
 )
+INSERT INTO dbo.Branches VALUES('Tehran', 'Vazir'), ('Tehran', 'Vazir2'), ('Tehran', 'Vazir3'),  ('Qom', 'Vazir4'), ('Qom', 'Vazir5'), ('Esfehan', 'Vazir6')
 
 CREATE TABLE Employees 
 (Id INT PRIMARY KEY IDENTITY,
@@ -12,6 +13,7 @@ Name VARCHAR(50),
 UserName VARCHAR(50),
 PassWord VARCHAR(50),
 BranchId INT FOREIGN KEY REFERENCES dbo.Branches)
+INSERT INTO dbo.Employees VALUES ('Mohammad Azizi', 'MAzizi', '123456', 1), ('Mostafa Mohammadi','MMohammadi', '123456', 2), ('Reza Alimi','RAlimi', '123456', 3), ('Afshin Soltani','ASoltani', '123456', 4), ('Hamid Shahani','HShahani', '123456', 5)
 
 CREATE TABLE Customers
 (id INT PRIMARY KEY IDENTITY,
