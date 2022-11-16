@@ -1,3 +1,5 @@
+-- Tables of the Restaurant System
+
 CREATE TABLE Branches
 (Id INT PRIMARY KEY IDENTITY,
 City VARCHAR(50),
@@ -32,3 +34,5 @@ CREATE TABLE OrderFiles_Items
 (Id INT PRIMARY KEY IDENTITY,
 ItemsId INT FOREIGN KEY REFERENCES dbo.Items,
 OFId INT FOREIGN KEY REFERENCES dbo.OrderFiles)
+
+
