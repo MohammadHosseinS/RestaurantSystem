@@ -1,0 +1,937 @@
+//    SaveOrderForm.Designer
+
+namespace RestaurantSystem
+{
+    partial class SaveOrderForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.AddItemBtn = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.PhoneLabel = new System.Windows.Forms.Label();
+            this.AddressLabel = new System.Windows.Forms.Label();
+            this.SetCustomerBtn = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // textBox1
+            // 
+            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(157, 22);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(206, 47);
+            this.textBox1.TabIndex = 1;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox3.Location = new System.Drawing.Point(591, 22);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(206, 47);
+            this.textBox3.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(22, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 21);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Customer Phone";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(455, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(127, 21);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Delivery Address";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(23, 184);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(774, 82);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "ثبت سفارش";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView1.Location = new System.Drawing.Point(23, 281);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(774, 260);
+            this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 26);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.Green;
+            this.label6.Location = new System.Drawing.Point(126, 560);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 21);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Price";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(23, 561);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(85, 20);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Total Price :";
+            // 
+            // AddItemBtn
+            // 
+            this.AddItemBtn.Location = new System.Drawing.Point(455, 91);
+            this.AddItemBtn.Name = "AddItemBtn";
+            this.AddItemBtn.Size = new System.Drawing.Size(342, 47);
+            this.AddItemBtn.TabIndex = 6;
+            this.AddItemBtn.Text = "افزودن غذا";
+            this.AddItemBtn.UseVisualStyleBackColor = true;
+            this.AddItemBtn.Click += new System.EventHandler(this.AddItemBtn_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(23, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(116, 20);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Customer Name";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(23, 108);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(117, 20);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Customer Phone";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(23, 141);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(129, 20);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Customer Address";
+            // 
+            // NameLabel
+            // 
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.NameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.NameLabel.Location = new System.Drawing.Point(183, 76);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(35, 20);
+            this.NameLabel.TabIndex = 11;
+            this.NameLabel.Text = "- - -";
+            // 
+            // PhoneLabel
+            // 
+            this.PhoneLabel.AutoSize = true;
+            this.PhoneLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.PhoneLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.PhoneLabel.Location = new System.Drawing.Point(183, 108);
+            this.PhoneLabel.Name = "PhoneLabel";
+            this.PhoneLabel.Size = new System.Drawing.Size(35, 20);
+            this.PhoneLabel.TabIndex = 11;
+            this.PhoneLabel.Text = "- - -";
+            // 
+            // AddressLabel
+            // 
+            this.AddressLabel.AutoSize = true;
+            this.AddressLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.AddressLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.AddressLabel.Location = new System.Drawing.Point(183, 141);
+            this.AddressLabel.Name = "AddressLabel";
+            this.AddressLabel.Size = new System.Drawing.Size(35, 20);
+            this.AddressLabel.TabIndex = 11;
+            this.AddressLabel.Text = "- - -";
+            // 
+            // SetCustomerBtn
+            // 
+            this.SetCustomerBtn.Location = new System.Drawing.Point(369, 22);
+            this.SetCustomerBtn.Name = "SetCustomerBtn";
+            this.SetCustomerBtn.Size = new System.Drawing.Size(52, 49);
+            this.SetCustomerBtn.TabIndex = 8;
+            this.SetCustomerBtn.Text = "ثبت";
+            this.SetCustomerBtn.UseVisualStyleBackColor = true;
+            this.SetCustomerBtn.Click += new System.EventHandler(this.SetCustomerBtn_Click);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(816, 22);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 25;
+            this.dataGridView2.Size = new System.Drawing.Size(382, 566);
+            this.dataGridView2.TabIndex = 12;
+            // 
+            // SaveOrderForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1210, 600);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.AddressLabel);
+            this.Controls.Add(this.PhoneLabel);
+            this.Controls.Add(this.NameLabel);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.SetCustomerBtn);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.AddItemBtn);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox1);
+            this.Name = "SaveOrderForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SaveOrderForm";
+            this.Load += new System.EventHandler(this.SaveOrderForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+        private TextBox textBox1;
+        private TextBox textBox3;
+        private Label label1;
+        private Label label4;
+        private Button button1;
+        private DataGridView dataGridView1;
+        private Label label6;
+        private Label label7;
+        private Button AddItemBtn;
+        private Label label3;
+        private Label label8;
+        private Label label9;
+        private Label NameLabel;
+        private Label PhoneLabel;
+        private Label AddressLabel;
+        private Button SetCustomerBtn;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem deleteToolStripMenuItem;
+        private DataGridView dataGridView2;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    SaveOrderForm.cs
+using Entities;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace RestaurantSystem
+{
+    public partial class SaveOrderForm : Form
+    {
+        public SaveOrderForm()
+        {
+            InitializeComponent();
+        }
+        Bridge bridge = new Bridge(@"Persist Security Info=False;User ID=moghari2;password=123456;Initial Catalog=RestaurantSystem;Data Source=(local)");
+        int? Id = null;
+        string? CustomerPhone = null;
+        string? Name = null;
+        bool Update = false;
+        int sumPrice = 0;
+
+        Customers customer = new Customers();
+
+        List<Items> items = new List<Items>();
+
+        List<int?> Deleted = new List<int?>();
+
+
+
+
+        async Task<string> RefreshForm()
+        {
+            Id = null;
+            Name = null;
+            items.Clear();
+            Deleted.Clear();
+            customer = new Customers();
+            sumPrice = 0;
+            label6.Text = "Price";
+            Update = false;
+            button1.Text = "ثبت سفارش";
+            DataSet ds = await bridge.ReadOrderFiles(null, null);
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = ds.Tables[0].DefaultView;
+            textBox1.Clear();
+            textBox3.Clear();
+            NameLabel.Text = "- - -";
+            PhoneLabel.Text = "- - -";
+            AddressLabel.Text = "- - -";
+            return "success";
+        }
+
+        async Task<string> FindCustomer(string? PhoneNumber)
+        {
+            customer = new Customers();
+            string? Phone = PhoneNumber == null ? null : textBox1.Text;
+            List<Customers> customers = await bridge.ReadCustomers(null, Phone);
+            if (customers.Count > 0)
+            {
+                customer = customers[0];
+                textBox1.Text = customer.Phone;
+                NameLabel.Text = customer.Name;
+                PhoneLabel.Text = customer.Phone;
+                AddressLabel.Text = customer.Address;
+                return $"Moshtari:\n{customer.Name + " " + customer.Phone + " "}";
+            }
+            else
+            {
+                textBox1.Clear();
+                NameLabel.Text = "- - -";
+                PhoneLabel.Text = "- - -";
+                AddressLabel.Text = "- - -";
+                return "Moredi ba in shomare yaft nashod";
+            }
+
+        }
+
+
+        private async void SaveOrderForm_Load(object sender, EventArgs e)
+        {
+            await RefreshForm();
+            textBox1.Text = "09105050500";
+            textBox3.Text = "qom";
+            dataGridView2.DataSource = null;
+            dataGridView2.DataSource = await bridge.ReadItems(null, null);
+        }
+
+
+
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "")
+            {
+                if (!Update)
+                {
+                    if (items.Count > 0)
+                    {
+                        OrderFiles of = new OrderFiles();
+
+                        // of's CustomerId
+                        of.CustomerId = customer != null ? customer.Id : -1;
+
+                        // of's Date
+                        DateTime dt = DateTime.Now;
+                        dt.AddTicks(-(dt.Ticks % TimeSpan.TicksPerSecond));
+                        of.Date = dt;
+
+                        // of's TotalPrice
+                        of.TotalPrice = sumPrice;
+
+                        MessageBox.Show(await bridge.SaveOrderFile_Item(of, items, null));
+                    }
+                    else MessageBox.Show("No Items were Found");
+
+                }
+                else
+                {
+                    if (items.Count > 0)
+                    {
+                        OrderFiles of = new OrderFiles();
+
+                        // of Id
+                        of.Id = (int)Id;
+
+                        // of CustomerId
+                        of.CustomerId = customer != null ? customer.Id : -1;
+
+                        // of_Items
+                        DataSet dds = await bridge.ReadOrderFile_Items(of.Id);
+                        List<Items> input = dds.Tables[0].AsEnumerable().Select(dataRow => new Items { Id = dataRow.Field<int>("Id"), Name = dataRow.Field<string>("Name"), Price = dataRow.Field<int>("Price") }).ToList();
+                        if (input != items)
+                        {
+                            await bridge.DeleteOrderFile_Item(of.Id);
+                        }
+
+                        // of Date
+                        DataSet ds = await bridge.ReadOrderFiles(Id, null);
+                        List<OrderFiles> ofs = ds.Tables[0].AsEnumerable().Select(datarow => new OrderFiles { Date = datarow.Field<DateTime>("Date") }).ToList();
+                        of.Date = ofs[0].Date;
+
+                        // of TotalPrice
+                        of.TotalPrice = sumPrice;
+
+
+                        MessageBox.Show(await bridge.SaveOrderFile_Item(of, items, 1));
+                    }
+                    else MessageBox.Show("No items were found");
+
+                    textBox1.Clear();
+                    await FindCustomer("0000000000");
+                }
+
+                    await RefreshForm();
+
+            }
+            else
+            {
+                MessageBox.Show("Shomare moshtari yaft nashod");
+                await RefreshForm();
+            }
+        }
+
+
+
+
+
+
+
+
+
+        private async void SetCustomerBtn_Click(object sender, EventArgs e)
+        {
+            await FindCustomer(textBox1.Text);
+        }
+
+
+
+
+        private async void AddItemBtn_Click(object sender, EventArgs e)
+        {
+            List<Items> input = new ();
+            AddItemForm aif = new (input);
+            aif.ShowDialog();
+            if (aif.Items.Count > 0)
+            {
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = aif.Items;
+                sumPrice = 0;
+                foreach (var item in aif.Items)
+                {
+                    sumPrice += item.Price;
+                }
+                label6.Text = sumPrice.ToString();
+                items.Clear();
+                items = aif.Items;
+            }
+            else
+            {
+                MessageBox.Show("Moredi sabt nashod");
+            }
+        }
+
+
+
+
+        private async void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Id"].Value);
+            CustomerPhone = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["Phone"].Value);
+            DataSet ds = await bridge.ReadOrderFile_Items(Id);
+            List<Items> input = ds.Tables[0].AsEnumerable().Select(dataRow => new Items { Id = dataRow.Field<int>("Id"), Name = dataRow.Field<string>("Name"), Price = dataRow.Field<int>("Price") }).ToList();
+            AddItemForm aif = new AddItemForm(input, Id);
+            List<Items> inputLike = new();
+            inputLike.AddRange(input);
+            await FindCustomer(CustomerPhone);
+            aif.ShowDialog();
+            if (aif.Items.Count != inputLike.Count)
+            {
+                button1.Text = "ویرایش";
+                items.Clear();
+                items = aif.Items;
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = items;
+                Update = true;
+                sumPrice = 0;
+                foreach (var item in items)
+                {
+                    sumPrice += item.Price;
+                }
+                label6.Text = sumPrice.ToString();
+            }            
+        }
+
+
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Id"].Value);
+        }
+
+
+
+
+        private async void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string a = Id != null ? await bridge.DeleteOrderFile(Id) : "Id be dorosti entekhab nashode";
+            MessageBox.Show(a);
+            await RefreshForm();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (Id <= 0)
+            {
+                Id = null;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    AddItemForm.Designer
+namespace RestaurantSystem
+{
+    partial class AddItemForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.AddItemBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ItemNameTxt = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.OFIdLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // AddItemBtn
+            // 
+            this.AddItemBtn.Location = new System.Drawing.Point(366, 12);
+            this.AddItemBtn.Name = "AddItemBtn";
+            this.AddItemBtn.Size = new System.Drawing.Size(52, 47);
+            this.AddItemBtn.TabIndex = 11;
+            this.AddItemBtn.Text = "ثبت";
+            this.AddItemBtn.UseVisualStyleBackColor = true;
+            this.AddItemBtn.Click += new System.EventHandler(this.AddItemBtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(19, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 21);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Item Name";
+            // 
+            // ItemNameTxt
+            // 
+            this.ItemNameTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.ItemNameTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.ItemNameTxt.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ItemNameTxt.Location = new System.Drawing.Point(112, 12);
+            this.ItemNameTxt.Multiline = true;
+            this.ItemNameTxt.Name = "ItemNameTxt";
+            this.ItemNameTxt.Size = new System.Drawing.Size(248, 47);
+            this.ItemNameTxt.TabIndex = 9;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(19, 65);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(399, 216);
+            this.dataGridView1.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 301);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 15);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "OrderFile Id = ";
+            // 
+            // OFIdLabel
+            // 
+            this.OFIdLabel.AutoSize = true;
+            this.OFIdLabel.Location = new System.Drawing.Point(107, 301);
+            this.OFIdLabel.Name = "OFIdLabel";
+            this.OFIdLabel.Size = new System.Drawing.Size(12, 15);
+            this.OFIdLabel.TabIndex = 13;
+            this.OFIdLabel.Text = "0";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(279, 290);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 36);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "حذف";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // AddItemForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(438, 333);
+            this.Controls.Add(this.OFIdLabel);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddItemBtn);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ItemNameTxt);
+            this.Name = "AddItemForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "AddItemForm";
+            this.Load += new System.EventHandler(this.AddItemForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        public Button AddItemBtn;
+        public Label label1;
+        public TextBox ItemNameTxt;
+        public DataGridView dataGridView1;
+        private Label label2;
+        private Label OFIdLabel;
+        public Button button1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    AddItemForm.cs
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Entities;
+
+namespace RestaurantSystem
+{
+    public partial class AddItemForm : Form
+    {
+        public AddItemForm(List<Items> input, int? OFId = null)
+        {
+            Items = input;
+            OF_Id = OFId;
+            InitializeComponent();
+        }
+        public List<Items> Items { get; set; } = new List<Items>();
+        private int? OF_Id { get; set; }
+
+        Bridge bridge = new Bridge(@"Persist Security Info=False;User ID=moghari2;password=123456;Initial Catalog=RestaurantSystem;Data Source=(local)");
+        int? Id;
+        string? Name;
+
+
+
+
+        private async void AddItemBtn_Click(object sender, EventArgs e)
+        {
+            Name = ItemNameTxt.Text;
+            List<Items> tempItems = await bridge.ReadItems(Id, Name);
+            if (tempItems.Count > 0)
+            {
+                Items item = tempItems.FirstOrDefault();
+                Items.Add(item);
+            }
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = Items;
+            
+        }
+
+
+
+
+        private void AddItemForm_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = Items;            
+
+            if (OF_Id != null)
+            {
+                OFIdLabel.Text = OF_Id.ToString();
+            }
+            else { OFIdLabel.Text = String.Empty; label2.Visible = false; }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("آیا از حذف مطمئن هستید؟", "!تمام آیتم ها حذف می شوند", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                Items.Clear();
+            }
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = Items;
+
+        }
+    }
+}
