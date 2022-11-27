@@ -1,0 +1,886 @@
+//    Service => Data.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Dapper;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace Service
+{
+    internal class Data
+    {
+        protected IDbConnection db;
+        public Data(string connectionstring)
+        {
+            if (db == null)
+            {
+                db = new SqlConnection(connectionstring);
+            }
+        }
+    }
+    
+    
+    
+    // جوری که مغاری نوشت
+    /*
+        internal class BaseService
+    {
+        protected IDbConnection Db  ;
+
+        public BaseService(string connectionString)
+        {
+            if(Db==null)
+                Db=new SqlConnection(connectionString);
+
+        }
+
+    }
+    */
+}
+
+
+
+
+
+
+
+
+
+//    Service => IGeneralService.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+using Entities;
+using Dapper;
+namespace Service
+{
+    public  interface IGeneralService
+    {
+        Task<string> SaveCustomer(Customers customer, int? id);
+        Task<string> SaveItem(Items item, int? id);
+        Task<string> SaveOrderFile_Item(OrderFiles ofi, List<Items> items, int? id);
+        Task<string> DeleteOrderFile_Item(int? OFId);
+        Task<string> DeleteOrderFile (int? id);
+        Task<List<Items>> ReadItems(int? Id, string? Name);
+        Task<List<Customers>> ReadCustomers(int? Id, string? Phone);
+        Task<DataSet> ReadOrderFiles(int? Id, DateTime? Date);
+        Task<DataSet> ReadOrderFile_Items(int? Id);
+        Task<DataSet> ReadListReport(DynamicParameters param);
+        Task<DataSet> ReadCustomerOrderHistory(string CustomerPhone);
+        Task<string> ReadEmployeeName(string EmployeeUsername);
+        Task<string> Login(string Username, string Password);
+        Task<string> test(string? stringa, DateTime? datea);
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    Service => GeneralService.cs
+using Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Dapper;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace Service
+{
+    internal class GeneralService : Data, IGeneralService
+    {
+        public GeneralService(string connectionstring) : base(connectionstring)
+        {
+
+        }
+
+        public DataSet ConvertDataReaderToDataSet(IDataReader data)
+        {
+            DataSet ds = new DataSet();
+            int i = 0;
+            while (!data.IsClosed)
+            {
+                ds.Tables.Add("Table" + (i + 1));
+                ds.EnforceConstraints = false;
+                ds.Tables[i].Load(data);
+                i++;
+            }
+            return ds;
+        }
+
+
+        public async Task<string> SaveCustomer(Customers customer, int? Id)
+        {
+            var param = new DynamicParameters(customer);
+            param.AddDynamicParams(Id);
+            return await db.ExecuteScalarAsync<string>("SaveCustomers", param, commandType: CommandType.StoredProcedure).ConfigureAwait(false) ;
+        }
+        public async Task<string> SaveItem(Items item, int? Id)
+        {
+            return await db.ExecuteScalarAsync<string>("SaveItems", new {Id = Id, Name = item.Name, Price = item.Price}, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
+        }
+        public async Task<string> SaveOrderFile_Item(OrderFiles orderFiles,List<Items> items, int? Id)
+        {
+            try
+            {
+                if (Id == null)
+                {
+                    string first = await db.ExecuteScalarAsync<string>("SaveOrderFiles", new { Id = Id, CustomerId = orderFiles.CustomerId, Date = orderFiles.Date, TotalPrice = orderFiles.TotalPrice }, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
+                    foreach (var item in items)
+                    {
+                        int a = 0;
+                        var param = new DynamicParameters();
+                        param.Add("Item_Name", item.Name);
+                        param.Add("OrderFiles_Date", orderFiles.Date);
+                        await db.ExecuteAsync("SaveOrderFilesItems", param, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
+                    }
+                    return first;
+                }
+                foreach (var item in items)
+                {
+                    var param = new DynamicParameters();
+                    param.Add("Item_Name", item.Name);
+                    param.Add("OrderFiles_Date", orderFiles.Date);
+                    await db.ExecuteAsync("SaveOrderFilesItems", param, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
+                }
+                return "Virayesh anjam shod";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
+        public async Task<string> DeleteOrderFile_Item(int? OFId)
+        {
+            return await db.ExecuteScalarAsync<string>("DeleteOrderFile_Item", new { OFId = OFId }, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
+        }
+        public async Task<string> DeleteOrderFile(int? Id)
+        {
+            return await db.ExecuteScalarAsync<string>("DeleteOrderFile", new { Id = Id }, commandType:CommandType.StoredProcedure).ConfigureAwait(false);
+        }
+        public async Task<List<Items>> ReadItems(int? Id, string? Name)
+        {
+            var res = await db.QueryAsync<Items>("ReadItems", new { Id = Id, Name = Name }, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
+            return res.ToList();
+        }
+        public async Task<List<Customers>> ReadCustomers(int? Id, string? Phone)
+        {
+            var res = await db.QueryAsync<Customers>("ReadCustomers", new { Id = Id, Phone = Phone }, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
+            return res.ToList();
+        }
+        public async Task<DataSet> ReadOrderFiles(int? Id, DateTime? Date)
+        {
+            var sp = "ReadOrderFiles";
+            var param = new DynamicParameters();
+            param.Add("Id", Id);
+            param.Add("Date", Date);
+            var res = await SqlMapper.ExecuteReaderAsync(db, sp, param, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
+            var ds = ConvertDataReaderToDataSet(res);
+            return ds;
+        }
+        public async Task<DataSet> ReadOrderFile_Items(int? Id)
+        {
+            var sp = "ReadOrderFile_Items";
+            var param = new DynamicParameters();
+            param.Add("OrderId", Id);
+            var res = await SqlMapper.ExecuteReaderAsync(db, sp, param, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
+            var ds = ConvertDataReaderToDataSet(res);
+            return ds;
+        }
+        public async Task<DataSet> ReadListReport(DynamicParameters param)
+        {
+            var res = await SqlMapper.ExecuteReaderAsync(db, "LISTING", param, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
+            var ds = ConvertDataReaderToDataSet(res);
+            return ds;
+        }
+        public async Task<DataSet> ReadCustomerOrderHistory(string CustomerPhone)
+        {
+            var res = await db.ExecuteReaderAsync("ReadCustomerOrderHistory", new { CustomerPhone = CustomerPhone }, commandType: CommandType.StoredProcedure).ConfigureAwait (false);
+            return ConvertDataReaderToDataSet(res);
+        }
+        public async Task<string> ReadEmployeeName(string EmployeeUsername)
+        {
+            return await db.ExecuteScalarAsync<string>("SELECT Name FROM dbo.Employees WHERE UserName = '"+EmployeeUsername+"'", commandType: CommandType.Text).ConfigureAwait(false);
+        }
+        public async Task<string> Login(string Username, string Password)
+        {
+            return await db.ExecuteScalarAsync<string>("Login", new { UserName = Username, PassWord = Password }, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
+        }
+
+
+
+        public async Task<string> test(string? stringa, DateTime? datea)
+        {
+            var param = new DynamicParameters(stringa);
+            param.AddDynamicParams(datea);
+            return await db.ExecuteScalarAsync<string>("testingDynamic", param, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    Service => ServiceFactory.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Service
+{
+    public static class ServiceFactory
+    {
+        private static IGeneralService _igeneralService;
+        public static IGeneralService GeneralBuilder(string connectionstring)
+        {
+            if (_igeneralService == null)
+            {
+                _igeneralService = new GeneralService(connectionstring);
+            }
+            return _igeneralService;
+        }
+    }
+    
+    
+    
+    // جوری که مغاری نوشت
+    /*
+        public static class ServiceFactory
+    {
+        private static IGeneralService general;
+
+        public static IGeneralService GeneralBuilder(string connectionString) =>
+            general ?? (general = new GeneralService(connectionString));
+
+    }
+    */
+}
+
+
+
+
+
+
+
+
+
+
+//    Service => ServiceResponse.cs   // => این رو مغاری نوشته
+using System;
+
+namespace Business
+{
+    public class ServiceResponse<T>
+    {
+        public bool Success { get; private set; } = true;
+        public T Data { get; private set; }
+        public Exception Exception { get; private set; }
+
+        public void SetState(bool success)
+        {
+            Success = success;
+        }
+
+        public void SetData(T data)
+        {
+            Data = data;
+        }
+
+        public void SetError(Exception ex)
+        {
+            Exception = ex;
+        }
+
+        public string GetError()
+        {
+            return Exception.Message;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//    Business => IGeneral.cs
+using System.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Entities;
+using Dapper;
+
+namespace Business
+{
+    public interface IGeneral
+    {
+        Task<string> SaveCustomer(Customers customer, int? Id);
+        Task<string> SaveItem(Items item, int? id);
+        Task<string> SaveOrderFile_Item(OrderFiles ofi, List<Items> items, int? Id);
+        Task<string> DeleteOrderFile_Item(int? OFId);    
+        Task<string> DeleteOrderFile (int? Id);
+        Task<List<Items>> ReadItems(int? Id, string? Name);
+        Task<List<Customers>> ReadCustomers(int? Id, string? Phone);
+        Task<DataSet> ReadOrderFiles(int? Id, DateTime? Date);
+        Task<DataSet> ReadOrderFile_Items(int? Id);
+        Task<DataSet> ReadListReport(DynamicParameters param);
+        Task<DataSet> ReadCustomerOrderHistory(string CustomerPhone);
+        Task<string> ReadEmployeeName(string EmployeeUsername);
+        Task<string> Login(string Username, string Password);
+
+
+        Task<string> test(string? stringa, DateTime? datea);
+        
+        
+        
+        
+        // جوری که مغاری نوشت
+        /*
+        Task<ServiceResponse<string>> GetValue(string key);
+        */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    Business => General.cs
+using System.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Entities;
+using Service;
+using Dapper;
+
+namespace Business
+{
+    internal class General : IGeneral
+    {
+        private readonly IGeneralService _igeneralservice;
+        public General(IGeneralService igeneralservice)
+        {
+            if (_igeneralservice == null)
+            {
+                _igeneralservice = igeneralservice;
+            }
+        }
+
+
+
+        public async Task<string> SaveCustomer(Customers customer, int? Id)
+        {
+            return await _igeneralservice.SaveCustomer(customer, Id);
+        }
+        public async Task<string> SaveItem(Items item, int? id)
+        {
+            return await _igeneralservice.SaveItem(item, id);
+        }
+        public async Task<string> SaveOrderFile_Item(OrderFiles ofi, List<Items> items, int? Id)
+        {
+            return await _igeneralservice.SaveOrderFile_Item(ofi, items, Id);
+        }
+        public async Task<string> DeleteOrderFile_Item(int? OFId)
+        {
+            return await _igeneralservice.DeleteOrderFile_Item(OFId);
+        }
+        public async Task<string> DeleteOrderFile(int? Id)
+        {
+            return await _igeneralservice.DeleteOrderFile(Id);
+        }
+        public async Task<List<Items>> ReadItems(int? Id, string? Name)
+        {
+            return await _igeneralservice.ReadItems(Id, Name);
+        }
+        public async Task<List<Customers>> ReadCustomers(int? Id, string? Phone)
+        {
+            return await _igeneralservice.ReadCustomers(Id, Phone);
+        }
+        public async Task<DataSet> ReadOrderFiles(int? Id, DateTime? Date)
+        {
+            return await _igeneralservice.ReadOrderFiles(Id, Date);
+        }
+        public async Task<DataSet> ReadOrderFile_Items(int? Id)
+        {
+            return await _igeneralservice.ReadOrderFile_Items(Id);
+        }
+        public async Task<DataSet> ReadListReport(DynamicParameters param)
+        {
+            return await _igeneralservice.ReadListReport(param);
+        }
+        public async Task<DataSet> ReadCustomerOrderHistory(string CustomerPhone)
+        {
+            return await _igeneralservice.ReadCustomerOrderHistory(CustomerPhone);
+        }
+        public async Task<string> ReadEmployeeName(string EmployeeName)
+        {
+            return await _igeneralservice.ReadEmployeeName(EmployeeName);
+        }
+        public async Task<string> Login(string Username, string Password)
+        {
+            return await _igeneralservice.Login(Username, Password);
+        }
+
+
+        public async Task<string> test(string? stringa, DateTime? datea)
+        {
+            return await _igeneralservice.test(stringa, datea);
+        }
+        
+        
+        
+        
+        
+        
+        
+        // جوری که مغاری نوشت
+        /*
+        using Service;
+        using System;
+        using System.Threading.Tasks;
+
+        namespace Business
+        {
+            internal class General : IGeneral
+            {
+                private readonly IGeneralService _generalService;
+
+                public General(IGeneralService generalService)
+                {
+                    _generalService = generalService;
+                }
+
+                public async Task<ServiceResponse<string>> GetValue(string key)
+                {
+                    var response=new ServiceResponse<string>();
+
+                    try
+                    {
+                        var data=await _generalService.GetValue(key);
+                        response.SetData(data);
+                    }
+                    catch (Exception ex)
+                    {
+                        response.SetError(ex);
+                    }
+
+                    return response;
+                }
+            }
+        }
+        */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    Business => BusinessFactory.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Service;
+namespace Business
+{
+    public static class BusinessFactory
+    {
+        private static IGeneral _igeneral;
+
+        public static IGeneral GeneralBuilder(string connectionstring)
+        {
+            if (_igeneral == null)
+            {
+                _igeneral = new General(ServiceFactory.GeneralBuilder(connectionstring));
+            }
+            return _igeneral;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    Bridge
+using System.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Entities;
+using Business;
+using Dapper;
+namespace RestaurantSystem
+{
+    internal class Bridge
+    {
+        private IGeneral _igeneral;
+        public Bridge(string connectionstring)
+        {
+            if (_igeneral == null)
+            {
+                _igeneral = BusinessFactory.GeneralBuilder(connectionstring);
+            }
+        }
+        public async Task<string> SaveCustomer(Customers customer, int? Id)
+        {
+            return await _igeneral.SaveCustomer(customer, Id);
+        }
+        public async Task<string> SaveItem(Items item, int? id)
+        {
+            return await _igeneral.SaveItem(item, id);
+        }
+        public async Task<string> SaveOrderFile_Item(OrderFiles ofi, List<Items> items, int? Id)
+        {
+            return await _igeneral.SaveOrderFile_Item(ofi, items, Id);
+        }
+        public async Task<string> DeleteOrderFile_Item(int? OFId)
+        {
+            return await _igeneral.DeleteOrderFile_Item(OFId);
+        }
+        public async Task<string> DeleteOrderFile(int? Id)
+        {
+            return await _igeneral.DeleteOrderFile(Id);
+        }
+        public async Task<List<Items>> ReadItems(int? Id, string? Name)
+        {
+            return await _igeneral.ReadItems(Id, Name);
+        }
+        public async Task<List<Customers>> ReadCustomers(int? Id, string? Phone)
+        {
+            return await _igeneral.ReadCustomers(Id, Phone);
+        }
+        public async Task<DataSet> ReadOrderFiles(int? Id, DateTime? Date)
+        {
+            return await _igeneral.ReadOrderFiles(Id, Date);
+        }
+        public async Task<DataSet> ReadOrderFile_Items(int? Id)
+        {
+            return await _igeneral.ReadOrderFile_Items(Id);
+        }
+        public async Task<DataSet> ReadListReport(DynamicParameters param)
+        {
+            return await _igeneral.ReadListReport(param);
+        }
+        public async Task<DataSet> ReadCustomerOrderHistory(string CustomerPhone)
+        {
+            return await _igeneral.ReadCustomerOrderHistory(CustomerPhone);
+        }
+        public async Task<string> ReadEmployeeName(string EmployeeUsername)
+        {
+            return await _igeneral.ReadEmployeeName(EmployeeUsername);
+        }
+        public async Task<string> Login(string Username, string Password)
+        {
+            return await _igeneral.Login(Username, Password);
+        }
+
+
+
+        public async Task<string> test(string? stringa, DateTime? datea)
+        {
+            return await _igeneral.test(stringa, datea);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    Entities
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Entities
+{
+    public class Branches
+    {
+        public int Id { get; set; }
+        public string City { get; set; }
+        public string Name { get; set; }
+    }
+}
+
+
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Entities
+{
+    public class Customers
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+    }
+}
+
+
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Entities
+{
+    public class Employees
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string UserName { get; set; }
+        public string PassWord { get; set; }
+        public int BranchId { get; set; }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Entities
+{
+    public class Items
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Price { get; set; }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Entities
+{
+    public class OrderFiles
+    {
+        public int Id { get; set; }
+        public int CustomerId { get; set; }
+        public DateTime Date { get; set; }
+        public int TotalPrice { get; set; }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Entities
+{
+    public class OrderFiles_Items
+    {
+        public int Id { get; set; }
+        public int ItemsId { get; set; }
+        public int OFId { get; set; }
+    }
+}
