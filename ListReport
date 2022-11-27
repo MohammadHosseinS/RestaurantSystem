@@ -1,0 +1,552 @@
+//    ListReportForm.Designer
+namespace RestaurantSystem
+{
+    partial class ListReportForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.SearchBtn = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.WPhone = new System.Windows.Forms.CheckBox();
+            this.WDate = new System.Windows.Forms.CheckBox();
+            this.WItem = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.STotalPrice = new System.Windows.Forms.CheckBox();
+            this.Sshobe = new System.Windows.Forms.CheckBox();
+            this.SCustomer = new System.Windows.Forms.CheckBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.ReturnBtn = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ReportTitleLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.SandyBrown;
+            this.panel1.Controls.Add(this.SearchBtn);
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.dateTimePicker2);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.WPhone);
+            this.panel1.Controls.Add(this.WDate);
+            this.panel1.Controls.Add(this.WItem);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.STotalPrice);
+            this.panel1.Controls.Add(this.Sshobe);
+            this.panel1.Controls.Add(this.SCustomer);
+            this.panel1.Location = new System.Drawing.Point(1, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(613, 380);
+            this.panel1.TabIndex = 0;
+            // 
+            // SearchBtn
+            // 
+            this.SearchBtn.Location = new System.Drawing.Point(47, 224);
+            this.SearchBtn.Name = "SearchBtn";
+            this.SearchBtn.Size = new System.Drawing.Size(206, 112);
+            this.SearchBtn.TabIndex = 20;
+            this.SearchBtn.Text = "جست و جو";
+            this.SearchBtn.UseVisualStyleBackColor = true;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.Location = new System.Drawing.Point(314, 298);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(200, 38);
+            this.textBox2.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(314, 104);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 38);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(504, 33);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(64, 21);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "براساس:";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Enabled = false;
+            this.dateTimePicker2.Location = new System.Drawing.Point(314, 224);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePicker2.TabIndex = 18;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(543, 225);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(19, 21);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "تا";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(543, 187);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(21, 21);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "از";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker1.Location = new System.Drawing.Point(314, 185);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePicker1.TabIndex = 19;
+            // 
+            // WPhone
+            // 
+            this.WPhone.AutoSize = true;
+            this.WPhone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.WPhone.Location = new System.Drawing.Point(409, 267);
+            this.WPhone.Name = "WPhone";
+            this.WPhone.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.WPhone.Size = new System.Drawing.Size(159, 25);
+            this.WPhone.TabIndex = 16;
+            this.WPhone.Text = "شماره تماس مشتری";
+            this.WPhone.UseVisualStyleBackColor = true;
+            this.WPhone.CheckedChanged += new System.EventHandler(this.WPhone_CheckedChanged);
+            // 
+            // WDate
+            // 
+            this.WDate.AutoSize = true;
+            this.WDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.WDate.Location = new System.Drawing.Point(508, 147);
+            this.WDate.Name = "WDate";
+            this.WDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.WDate.Size = new System.Drawing.Size(60, 25);
+            this.WDate.TabIndex = 16;
+            this.WDate.Text = "تاریخ";
+            this.WDate.UseVisualStyleBackColor = true;
+            this.WDate.CheckedChanged += new System.EventHandler(this.WDate_CheckedChanged);
+            // 
+            // WItem
+            // 
+            this.WItem.AutoSize = true;
+            this.WItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.WItem.Location = new System.Drawing.Point(496, 73);
+            this.WItem.Name = "WItem";
+            this.WItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.WItem.Size = new System.Drawing.Size(72, 25);
+            this.WItem.TabIndex = 17;
+            this.WItem.Text = "نام غذا";
+            this.WItem.UseVisualStyleBackColor = true;
+            this.WItem.CheckedChanged += new System.EventHandler(this.WItem_CheckedChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(108, 33);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(113, 21);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "آیتم های نمایش:";
+            // 
+            // STotalPrice
+            // 
+            this.STotalPrice.AutoSize = true;
+            this.STotalPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.STotalPrice.Location = new System.Drawing.Point(103, 159);
+            this.STotalPrice.Name = "STotalPrice";
+            this.STotalPrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.STotalPrice.Size = new System.Drawing.Size(118, 25);
+            this.STotalPrice.TabIndex = 9;
+            this.STotalPrice.Text = "مجموع فروش";
+            this.STotalPrice.UseVisualStyleBackColor = true;
+            // 
+            // Sshobe
+            // 
+            this.Sshobe.AutoSize = true;
+            this.Sshobe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Sshobe.Location = new System.Drawing.Point(91, 73);
+            this.Sshobe.Name = "Sshobe";
+            this.Sshobe.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Sshobe.Size = new System.Drawing.Size(130, 25);
+            this.Sshobe.TabIndex = 10;
+            this.Sshobe.Text = "شهر و نام شعبه";
+            this.Sshobe.UseVisualStyleBackColor = true;
+            // 
+            // SCustomer
+            // 
+            this.SCustomer.AutoSize = true;
+            this.SCustomer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SCustomer.Location = new System.Drawing.Point(69, 117);
+            this.SCustomer.Name = "SCustomer";
+            this.SCustomer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SCustomer.Size = new System.Drawing.Size(152, 25);
+            this.SCustomer.TabIndex = 11;
+            this.SCustomer.Text = "شماره و نام مشتری";
+            this.SCustomer.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Chocolate;
+            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.ReturnBtn);
+            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.ReportTitleLabel);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Location = new System.Drawing.Point(1, 1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(613, 380);
+            this.panel2.TabIndex = 21;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(27, 55);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(206, 43);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "خروجی اکسل";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // ReturnBtn
+            // 
+            this.ReturnBtn.Location = new System.Drawing.Point(27, 11);
+            this.ReturnBtn.Name = "ReturnBtn";
+            this.ReturnBtn.Size = new System.Drawing.Size(206, 43);
+            this.ReturnBtn.TabIndex = 20;
+            this.ReturnBtn.Text = "بازگشت";
+            this.ReturnBtn.UseVisualStyleBackColor = true;
+            this.ReturnBtn.Click += new System.EventHandler(this.ReturnBtn_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(27, 104);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(564, 265);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // ReportTitleLabel
+            // 
+            this.ReportTitleLabel.AutoSize = true;
+            this.ReportTitleLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReportTitleLabel.Location = new System.Drawing.Point(378, 55);
+            this.ReportTitleLabel.Name = "ReportTitleLabel";
+            this.ReportTitleLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ReportTitleLabel.Size = new System.Drawing.Size(36, 21);
+            this.ReportTitleLabel.TabIndex = 12;
+            this.ReportTitleLabel.Text = "- - -";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(482, 20);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(97, 21);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "عنوان گزارش:";
+            // 
+            // ListReportForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(615, 382);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
+            this.Name = "ListReportForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ListReportForm";
+            this.Load += new System.EventHandler(this.ListReportForm_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private Panel panel1;
+        private Label label3;
+        private CheckBox STotalPrice;
+        private CheckBox Sshobe;
+        private CheckBox SCustomer;
+        private Label label1;
+        private DateTimePicker dateTimePicker2;
+        private Label label4;
+        private Label label2;
+        private DateTimePicker dateTimePicker1;
+        private CheckBox WDate;
+        private CheckBox WItem;
+        private TextBox textBox1;
+        private CheckBox WPhone;
+        private TextBox textBox2;
+        private Button SearchBtn;
+        private Panel panel2;
+        private Button button3;
+        private Button ReturnBtn;
+        private DataGridView dataGridView1;
+        private Label ReportTitleLabel;
+        private Label label5;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    ListReportForm.cs
+using Dapper;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace RestaurantSystem
+{
+    public partial class ListReportForm : Form
+    {
+        public ListReportForm()
+        {
+            InitializeComponent();
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        string select1 = " dbo.Branches.City, dbo.Branches.Name ";
+        string select2 = " dbo.Customers.Phone + ',  ' + dbo.Customers.Name ";
+        string select3 = " SUM(dbo.OrderFiles.TotalPrice)  AS TotalPrice ";
+
+        string group1 = " dbo.Branches.City, dbo.Branches.Name ";
+        string group2 = " dbo.Customers.Phone , dbo.Customers.Name ";
+        string group3 = " TotalPrice";
+
+        Bridge bridge = new(@"Persist Security Info=False;User ID=moghari2;password=123456;Initial Catalog=RestaurantSystem;Data Source=(local)");
+
+        private void WDate_CheckedChanged(object sender, EventArgs e)
+        {
+            dateTimePicker1.Enabled = WDate.Checked ? true : false;
+            dateTimePicker2.Enabled = WDate.Checked ? true : false;
+        }
+        private void WPhone_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox2.Enabled = WPhone.Checked ? true : false;
+        }
+        private void WItem_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox1.Enabled = WItem.Checked ? true : false;
+        }
+
+
+        private async void SearchBtn_Click(object sender, EventArgs e)
+        {
+
+            string SqlSelect = (Sshobe.Checked == true && SCustomer.Checked == true && STotalPrice.Checked == false) ? select1 + ", " + select2 :
+                (Sshobe.Checked == true && SCustomer.Checked == false && STotalPrice.Checked == true) ? select1 + ", " + select3 :
+                (Sshobe.Checked == true && SCustomer.Checked == false && STotalPrice.Checked == false) ? select1 :
+                (Sshobe.Checked == false && SCustomer.Checked == true && STotalPrice.Checked == true) ? select2 + ", " + select3 :
+                (Sshobe.Checked == false && SCustomer.Checked == true && STotalPrice.Checked == false) ? select2 :
+                (Sshobe.Checked == false && SCustomer.Checked == false && STotalPrice.Checked == true) ? select3 :
+                select1 + ", " + select2 + ", " + select3 ;
+                 // افزودن یک خط برای حالتی که هرسه خالی باشند نیاز نیست، چون در آن صورت هم باید خط آخر اجرا شود
+
+
+
+            string SqlGroupBy = (Sshobe.Checked == true && SCustomer.Checked == true && STotalPrice.Checked == false) ? " GROUP BY " + group1 + ", " + group2 :
+                (Sshobe.Checked == true && SCustomer.Checked == false && STotalPrice.Checked == true) ? " GROUP BY " + group1 + ", " + group3 :
+                (Sshobe.Checked == true && SCustomer.Checked == false && STotalPrice.Checked == false) ? " GROUP BY " + group1 :
+                (Sshobe.Checked == false && SCustomer.Checked == true && STotalPrice.Checked == true) ? " GROUP BY " + group2 + ", " + group3 :
+                (Sshobe.Checked == false && SCustomer.Checked == true && STotalPrice.Checked == false) ? " GROUP BY " + group2 :
+                (Sshobe.Checked == false && SCustomer.Checked == false && STotalPrice.Checked == true) ? " GROUP BY " + group3 :
+                " GROUP BY " + group1 + ", " + group2 + ", " + group3;
+                 // افزودن یک خط برای حالتی که هرسه خالی باشند نیاز نیست، چون در آن صورت هم باید خط آخر اجرا شود
+
+            DateTime now = DateTime.Now;
+            now.AddTicks(-(now.Ticks % TimeSpan.TicksPerSecond));
+
+            DateTime middle = dateTimePicker1.Value;
+            middle.AddTicks(-(middle.Ticks % TimeSpan.TicksPerSecond));
+
+            DateTime? date1 = new();
+            date1 = middle == now ? null : middle;
+
+
+            DateTime middle2 = dateTimePicker2.Value;
+            middle2.AddTicks(-(middle2.Ticks % TimeSpan.TicksPerSecond));
+
+            DateTime? date2 = new();
+            date2 = middle2 < middle ? middle2 : null;
+
+            string SqlWhere = (WItem.Checked == true && WPhone.Checked == false && WDate.Checked == true && textBox1.Text != "" && textBox2.Text != "") ? " WHERE dbo.items.Name = '" + textBox1.Text + " '" + " AND " + "dbo.OrderFiles.Date BETWEEN '" + date1 + "' AND '" + date2 + "'" :
+                (WItem.Checked == true && WPhone.Checked == true && WDate.Checked == false && textBox1.Text != "") ? " WHERE dbo.items.Name = '" + textBox1.Text + "'" + "AND " + "dbo.Customers.Phone = '" + textBox2.Text + "'" :
+                (WItem.Checked == true && WPhone.Checked == false && WDate.Checked == false && textBox1.Text != "") ? " WHERE dbo.items.Name = '" + textBox1.Text + "'" :
+                (WItem.Checked == false && WPhone.Checked == true && WDate.Checked == false) ? " WHERE dbo.Customers.Phone = '" + textBox2.Text + "'" :
+                (WItem.Checked == false && WPhone.Checked == true && WDate.Checked == true && textBox2.Text != "") ? " WHERE dbo.Customers.Phone = '" + textBox2.Text + "'" + "AND" + "dbo.OrderFiles.Date BETWEEN '" + date1 + "' AND '" + date2 + "'" :
+                (WItem.Checked == false && WPhone.Checked == false && WDate.Checked == true && textBox2.Text != "") ? " WHERE dbo.OrderFiles.Date BETWEEN '" + date1 + "' AND '" + date2 + "'" :
+                (WItem.Checked == true && WPhone.Checked == true && WDate.Checked == true && textBox1.Text != "" && textBox2.Text != "") ? " WHERE dbo.items.Name = '" + textBox1.Text + "'" + " AND " + "dbo.Customers.Phone = '" + textBox2.Text + "'" + "AND" + "dbo.OrderFiles.Date BETWEEN '" + date1 + "' AND '" + date2 + "'" :
+                " ";
+
+            ReportTitleLabel.Text = (Sshobe.Checked == true && SCustomer.Checked == true && STotalPrice.Checked == false) ? "شعبات و مشتریان" :
+                (Sshobe.Checked == true && SCustomer.Checked == false && STotalPrice.Checked == true) ? "فروش شعبات" :
+                (Sshobe.Checked == true && SCustomer.Checked == false && STotalPrice.Checked == false) ? "شهرستان ها و شعبات" :
+                (Sshobe.Checked == false && SCustomer.Checked == true && STotalPrice.Checked == true) ? "خرید مشتریان" :
+                (Sshobe.Checked == false && SCustomer.Checked == true && STotalPrice.Checked == false) ? "لیست مشتریان و شماره تلفن ها" :
+                (Sshobe.Checked == false && SCustomer.Checked == false && STotalPrice.Checked == true) ? "مجموع فروش" :
+                 "شعبات، مشتریان و فروش";
+                // افزودن یک خط برای حالتی که هرسه خالی باشند نیاز نیست، چون در آن صورت هم باید خط آخر اجرا شود
+
+            
+            if (WDate.Checked == true && date1 == null || date2 == null)
+            {
+                MessageBox.Show("تاریخ به درستی وارد نشده");
+            }
+            else if (WItem.Checked == true && textBox1.Text == "")
+            {
+                MessageBox.Show("نام غذا وارد نشده");
+            }
+            else if (WPhone.Checked == true && textBox2.Text == "")
+            {
+                MessageBox.Show("شماره تماس مشتری وارد نشده");
+            }
+            else
+            {
+                var param = new DynamicParameters();
+
+                param.Add("Select", SqlSelect);
+                param.Add("Where", SqlWhere);
+                param.Add("GroupBy", SqlGroupBy);
+
+                DataSet ds = await bridge.ReadListReport(param);
+                DataTable dt = ds.Tables[0];
+
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = dt.DefaultView;
+
+                panel1.SendToBack();
+                panel1.Hide();
+                panel2.BringToFront();
+            }
+        }
+
+        private void ReturnBtn_Click(object sender, EventArgs e)
+        {
+            panel2.SendToBack();
+            panel1.Show();
+            panel1.BringToFront();
+        }
+
+        private void ListReportForm_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
